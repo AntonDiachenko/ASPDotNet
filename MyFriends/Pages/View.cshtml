@@ -1,0 +1,42 @@
+﻿@page "{id:int}"
+@model MyFriends.Pages.ViewModel
+@{
+}
+
+<div class="row">
+     <div class="col-md-4">
+          <form method="post">
+               <div class="form-group">
+                    <label asp-for="Friend.Id" class="control-label"></label>
+                    <input asp-for="Friend.Id" class="form-control" value="@Model.Friend.Id" disabled />
+               </div>
+
+
+               <div class="form-group">
+                    <label asp-for="Friend.Name" class="control-label"></label>
+                    <input asp-for="Friend.Name" class="form-control" value="@Model.Friend.Name" />
+                    <span asp-validation-for="Friend.Name"></span>
+               </div>
+
+
+               <div class="form-group">
+                    <label asp-for="Friend.Age" class="control-label"></label>
+                    <input asp-for="Friend.Age" class="form-control" value="@Model.Friend.Age" />
+                    <span asp-validation-for="Friend.Age"></span>
+               </div>
+
+               <div class="form-group">
+                    <input type="submit" value="Update Friend" class="btn btn-info" />
+               </div>
+          </form>
+            <a asp-page="/delete" asp-route-id="@Model.Friend.Id" class="btn btn-info">Delete</a>
+          
+     </div>
+</div>
+<br>
+
+<div>
+     <p>Id: @Model.Friend.Id</p>
+     <p>Name: @Model.Friend.Name</p>
+     <p>Age: @Model.Friend.Age</p>
+</div>
