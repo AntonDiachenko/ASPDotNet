@@ -1,0 +1,62 @@
+﻿@page
+@using Blog.Models
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Articles List</h1>
+</div>
+
+@* <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name`</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">View</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Article art in Model.ArticlesList)
+                    {
+                        <tr>
+                            <td>@art.Id</td>
+                            <td>@art.Author</td>
+                            <td>@art.Title</td>
+                            <td>@art.Body</td>
+                            <td>@art.Created</td>
+                            <th scope="col"><a asp-page="/view" asp-route-id="@art.Id" >View</a></th>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> *@
+
+<div class="container">
+    <h1 class="display-4">Welcome</h1>
+    <div class="row g-4">
+        @foreach (Article article in Model.ArticlesList)
+        {
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@article.Title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@article.Author.UserName</h6>
+                        <p class="card-text text-truncate-container">@article.Body</p>
+                        <p class="card-text text-truncate-container">@article.Created</p>
+                        <a class="btn btn-light" asp-page="/ViewArticle" asp-route-id="@article.Id"
+                        title="Order @article.Title">Read more</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

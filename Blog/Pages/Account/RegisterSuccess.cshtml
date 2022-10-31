@@ -1,0 +1,10 @@
+﻿@page
+@model Blog.Pages.RegisterSuccessModel
+@{
+    ViewData["Title"] = "Register confirmation";
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+    <p>Registration succeded with email @Model.Email.<a href="/Login">Click here to login</a></p> 
+}
